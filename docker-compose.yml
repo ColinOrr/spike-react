@@ -1,0 +1,20 @@
+version: '2'
+services:
+  sh:
+    image: node
+    command: bash
+    working_dir: /code
+    volumes:
+      - .:/code
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  web:
+    image: node
+    command: npm start
+    working_dir: /code
+    volumes:
+      - .:/code
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3000:3000
